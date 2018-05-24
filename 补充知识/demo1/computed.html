@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <input type="checkbox" v-model="check">
+        <input type="checkbox" v-model="item.isSelect" v-for="item in products">
+        <!-- 计算属性不是方法，计算属性会根据依赖进行缓存 -->
+        <!-- 默认get -->
+        <!-- 与watch的区别是异步 -->
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                products: [{
+                    isSelect: true
+                }, {
+                    isSelect: true
+                }]
+            },
+            methods: {
+
+            },
+            computed:{
+                check:{
+                    get:function(){
+                        return this.products.every(item => {
+                            return item.isSelect
+                        })
+                    },
+                    set:function(val){
+                        this.products.forEach(item => {
+                            return item.isSelect = val
+                        });
+                    }
+                }
+            }
+        })
+
+
+
+    </script>
+</body>
+
+</html>

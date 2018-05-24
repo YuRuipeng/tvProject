@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        // (1)数据描述符
+
+        // var obj = {
+        //     name: 'hello'
+        // };
+        // // 通过Object.defineProperty给对象加age属性
+        // Object.defineProperty(obj, 'age', {
+        //     value: 20,
+        //     // 默认情况下是不能修改属性值
+        //     // writable 表示是否可以修改值
+        //     writable: true,
+        //     // 判断是否可以修改属性
+        //     configurable: true,
+        //     // 判断是否可以枚举
+        //     enumerable: true
+        // });
+        // // 获取 
+        // console.log(obj.age); //20
+        // obj.age = 30;
+        // console.log(obj.age); //30
+
+        // for (var attr in obj) {
+        //     console.log(attr); //name age
+        // }
+
+
+        // (2)存取描述符
+
+        // var obj = {
+        //     name: 'hello'
+        // };
+        // var age = 20;
+        // // 通过Object.defineProperty给对象加age属性
+        // Object.defineProperty(obj, 'age', {
+        //     // 获取
+        //     get: function() {
+        //         return age;
+        //     },
+        //     // 设置
+        //     set: function(val) {
+        //         age = val;
+        //     },
+        //     // 判断是否可以修改属性
+        //     configurable: true,
+        //     // 判断是否可以枚举
+        //     enumerable: true
+        // });
+        // // 获取 
+        // console.log(obj.age); //20
+        // obj.age = 30;
+        // console.log(obj.age); //30
+
+
+        // (3)简单的做一个数据变化
+        var obj = {};
+        var oBox = document.getElementById("box");
+        Object.defineProperty(obj, 'message', {
+            // 获取
+            get: function() {
+                return oBox.innerHTML;
+            },
+            // 设置
+            set: function(val) {
+                oBox.innerHTML = val;
+            },
+            // 判断是否可以修改属性
+            configurable: true,
+            // 判断是否可以枚举
+            enumerable: true
+        });
+    </script>
+</body>
+
+</html>

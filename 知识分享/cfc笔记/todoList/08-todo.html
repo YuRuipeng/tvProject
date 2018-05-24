@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+    <style>
+        /* 删除样式 */
+
+        .del {
+            text-decoration: line-through;
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">
+                        ToDoList
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="panel panel-warning">
+                        <div class="panel-heading">
+                            <h3 class="text-danger">亲,您有{{count}}件事要完成</h3>
+                            <input type="text" class="form-control" placeholder="" v-model="title" @keydown.enter="add">
+                            <!-- keydown和keyup差一个单词,keydown的时候内容没有进入到输入框内 -->
+                        </div>
+                        <div class="panel-body">
+                            <ul class="list-group">
+                                <li class="list-group-item" v-for="(todo,index) in filterTodos" :key="index" @dblclick="remenber(todo)">
+                                    <!-- 如果isSelected为true,则del生效 -->
+                                    <!-- 当点击li时,我可以知道点击的是那一项,如果我点击的todo和当前循环的某个相等的时候,应该显示输入框 -->
+                                    <span :class="todo.isSelected?'del':''" v-show="current!=todo">
+                                        <input type="checkbox" v-model="todo.isSelected"> {{todo.title}}
+                                    </span>
+                                    <input type="text" v-model="todo.title" v-show="current==todo" @keyup.enter="cancel" @blur="cancel" v-focus="current==todo">
+                                    <button class="pull-right btn btn-danger btn-xs" @click="remove(todo)">&times;</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="panel-footer">
+                            <ul class="nav nav-pills">
+                                <li :class="{active:hash==='all'}">
+                                    <a href="#/all">全部</a>
+                                </li>
+                                <li :class="{active:hash==='finish'}">
+                                    <a href="#/finish">已完成</a>
+                                </li>
+                                <li :class="{active:hash==='unfinish'}">
+                                    <a href="#/unfinish">未完成</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            data: {
+                todos: [{
+                    isSelected: false,
+                    title: '睡觉'
+                }, {
+                    isSelected: false,
+                    title: '吃饭'
+                }],
+                title: '',
+                current: '',
+                hash: ''
+            },
+            methods: {
+                add() {
+                    this.todos.push({
+                        isSelected: false,
+                        title: this.title
+                    });
+                    this.title = '';
+                },
+                remove(todo) {
+                    // 拿到点击的和数组里的比对,相等则返回FALSE即可
+                    this.todos = this.todos.filter(item => item !== todo);
+                },
+                remenber(todo) {
+                    // 当前传递的是todo(当前点击的这一项)
+                    this.current = todo;
+                },
+                cancel() {
+                    // 离开输入框清空current
+                    this.current = '';
+                }
+            },
+            computed: {
+                count() {
+                    // 把是true的过滤出去,计算出未完成的个数
+                    return this.todos.filter(item => !item.isSelected).length
+                },
+                // 过滤后的todos
+                filterTodos() {
+                    if (this.hash === 'all') return this.todos;
+                    if (this.hash === 'finish') {
+                        return this.todos.filter(item => item.isSelected);
+                    }
+                    if (this.hash === 'unfinish') {
+                        return this.todos.filter(item => !item.isSelected);
+                    }
+                    return this.todos;
+                }
+            },
+            directives: {
+                focus(el, bindings) {
+                    // 当点击当前li时,让内部的输入框获取焦点
+                    if (bindings.value) {
+                        el.focus(); //获取焦点
+                    }
+                }
+            },
+            // watch默认只监控一层的数据变化,需要深度监控,就要变成对象
+            watch: {
+                // todos(){
+
+                // }
+                todos: {
+                    handler() {//默认写成函数就相当于默认写了一个handler
+
+                        // localStorage默认存的是字符串
+                        localStorage.setItem('data', JSON.stringify(this.todos));
+                    }, deep: true
+                }
+            },
+            // 初始化数据
+            created() {
+                // 有数据用存的,没数据用默认的
+                this.todos = JSON.parse(localStorage.getItem('data')) || this.todos;
+
+                // 监控hash值得变化,如果页面已经有hash了,重新刷新页面也要获取hash值
+                this.hash = window.location.hash.slice(2) || 'all';
+                console.log(window.location.hash)
+                window.addEventListener('hashchange', () => {
+                    // 当hash变化重新记录数据
+                    this.hash = window.location.hash.slice(2);
+                }, false);
+            }
+        })
+
+        // 1、将数据循环到页面上
+        // 2、敲回车时添加新的数据(需要加入isSelected属性)
+        // 3、删除功能
+        // 4、计算一下当前没有被选中的个数
+    </script>
+</body>
+
+</html>

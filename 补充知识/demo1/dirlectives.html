@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <button v-color="flad">按钮</button>
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                flad:'red'
+            },
+            methods: {
+
+            },
+            directives:{
+                color:function(el,bindings){
+                    console.log(el,bindings)
+                    el.style.background = bindings.value;
+                }
+            }
+        })
+
+
+
+    </script>
+</body>
+
+</html>

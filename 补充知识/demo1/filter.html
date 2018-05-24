@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+	<div id="app">
+        <p>{{item | filt}}</p>
+	</div>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+    <script type="text/javascript">
+        Vue.filter('filt',(data)=>{
+            return 3+data
+        })
+		var vm = new Vue({
+			el:"#app",
+			data:{
+				item:'1,2,3,4'
+			},
+            methods:{
+               
+            }
+		})
+
+
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+	<div id="app">
+        <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
+            <div v-show="flad">
+                11111
+            </div>
+        </transition>
+        <button @click="showed()">按钮</button>
+        <!-- transition-grulp -->
+	</div>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el:"#app",
+			data:{
+				flad:true,
+			},
+            methods:{
+                showed:function(){
+                    this.flad =! this.flad;
+                }
+            }
+		})
+
+
+		
+	</script>
+</body>
+</html>

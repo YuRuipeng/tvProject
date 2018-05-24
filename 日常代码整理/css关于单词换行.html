@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+	<span></span>
+<script type="text/javascript">
+	var Length = document.getElementsByTagName('span').length;
+	console.log(Length)
+	for (var i = 0; i < Length; i++) {
+		document.getElementsByTagName('span')[i].style.cssText="word-break: break-all;";
+	}
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="../lib/jqueryweui/css/jquery-weui.min.css">
+    <link rel="stylesheet" href="../css/public.css">
+    <link rel="stylesheet" href="../css/liveshow.css">
+</head>
+
+<body>
+<div class="m-eg-videoPlay" id="m-eg-live">
+    <div class="m-eg-videoDet-banner">
+        
+    </div>
+    <div class="m-eg-videoDet-look" v-cloak>
+        <img src="../img/icon-look.png" alt="">
+        <p>20人</p>
+    </div>
+    <div class="m-eg-videoDet-select">
+        <ul class="select-list">
+            <li class="select-li active" data-id="0">互动聊天</li>
+            <li class="select-li" data-id="1">直播简介</li>
+            <li class="select-li" data-id="2">往期回看</li>
+        </ul>
+        <div class="select-content mescroll" id="mescroll" >
+            <!-- <ul class="content-talk data-list" id="datalist">
+                <li class="content-talk-li">
+                    <div class="content-talk-li-headImg">
+                        <img src="../img/public.png" alt="">
+                    </div>
+                    <div class="content-talk-li-text">
+                        <div class="text-top">
+                            <p class="text-top-p1">名字</p>
+                            <p class="text-top-p2">2018-5-2 18:00</p>
+                        </div>
+                        <div class="text-bot">
+                            <p v-text="item.content">这是内容</p>
+                        </div>
+                    </div>
+                </li>
+                <div class="comment-none" style="display:none">
+                    暂无评论...
+                </div>
+            </ul> -->
+            <!-- <div class="content-intro">
+                <div class="content-intro-title">
+                    <p>这是标题</p>
+                </div>
+                <div class="content-intro-text">
+
+                </div>
+            </div> -->
+            <ul class="select-content-option data-list" id='datalist'>
+                <li class="select-content-option-list">
+                    <a href="#">
+                        <div class="list-left">
+                            <div class="list-left-top">
+                                <p class="top-p1">标题</p>
+                                <p class="top-p2">标签</p>
+                            </div>
+                            <div class="list-left-bot">
+                                <div>
+                                    <p class="p1"><img src="../img/public.png" alt="">200人次</p>
+                                </div>
+                                <p class="p1">2018-5-12</p>
+                            </div>
+                        </div>
+                        <div class="list-right">
+                            <img src="../img/public.png" alt="" class="right-img">
+                            <div>
+                                <img src="../img/icon-huifang.png" alt="" class="img2">
+                                <p>回顾</p>
+                            </div>
+                        </div>
+                        <div style="clear:both"></div>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="content-img">
+            <img src="../img/icon-comment.png" alt="" class="content-img-commnet">
+            <img src="../img/icon-zan.png" alt="" class="content-img-zan">
+            <!--<img src="" alt="" class="content-img-zan" v-show="ispraise==1">-->
+        </div>
+        <div class="content-send">
+            <input type="text" placeholder="说点什么吧...">
+            <div class="content-send-btn">
+                <img src="../img/icon_send.png" alt="">
+            </div>
+        </div>
+        <!--<div class="m-eg-live-load">
+            <div class="weui-loadmore">
+                <i class="weui-loading"></i>
+                <span class="weui-loadmore__tips">正在加载</span>
+            </div>
+        </div>-->
+    </div>
+    
+</div>
+
+
+    <script src="../js/jquery-3.2.1.js"></script>
+    <script src="../lib/jqueryweui/js/jquery-weui.min.js"></script>
+    <script src="../js/public.js"></script>
+</body>
+
+</html>

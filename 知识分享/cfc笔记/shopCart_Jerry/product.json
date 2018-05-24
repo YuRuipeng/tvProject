@@ -1,0 +1,25 @@
+[{
+    "id": 1,
+    "isSelect": true,
+    "productCover": "http://img.alicdn.com/tfscom/i4/TB1yunvOVXXXXXmaXXXXXXXXXXX_!!0-item_pic.jpg_290x290.jpg_.webp",
+    "productName": "桌椅",
+    "productInfo": "颜色变化",
+    "productPrice": 53,
+    "productCount": 3
+}, {
+    "id": 2,
+    "isSelect": true,
+    "productCover": "http://img.alicdn.com/tfscom/i4/TB1yunvOVXXXXXmaXXXXXXXXXXX_!!0-item_pic.jpg_290x290.jpg_.webp",
+    "productName": "桌椅",
+    "productInfo": "颜色变化",
+    "productPrice": 50.2,
+    "productCount": 1
+}, {
+    "id": 3,
+    "isSelect": false,
+    "productCover": "http://img.alicdn.com/tfscom/i4/TB1yunvOVXXXXXmaXXXXXXXXXXX_!!0-item_pic.jpg_290x290.jpg_.webp",
+    "productName": "桌椅",
+    "productInfo": "颜色变化",
+    "productPrice": 30.333,
+    "productCount": 2
+}]

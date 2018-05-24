@@ -1,0 +1,106 @@
+/*topbanner*/
+.magic-investment-topbanner{width: 100%;min-width: 1205px;/*background: url(../img/investment/magictt-investment-topbanner.png) no-repeat;background-size: 100% 863px;height: 863px;*/margin-top: 90px;}
+.magic-investment-topbanner h1{text-indent: -9999px;}
+
+/*market*/
+.magictt-investment-market{width: 100%;height: 635px;min-width: 1205px;padding-top: 55px;}
+.magictt-investment-market h2{font-size: 48px;color: #f76634;}
+.magictt-investment-market p{font-size: 30px;color: #666;line-height: 48px;margin: 32px 0 60px 0;}
+.magictt-investment-market ul li{float: left;}
+.magictt-investment-market ul li.first{margin-right: 30px;margin-left: -35px;}
+
+/*producttj*/
+.magictt-investment-producttj{width: 100%;min-width: 1205px;background: #eceff6;height: 650px;padding-top: 60px;}
+.magictt-investment-producttj h2{font-size: 48px;color:#f76634;}
+.magictt-investment-producttj p{font-size: 30px;color: #666;margin: 30px 0 30px 0;}
+.magictt-investment-producttj ul li{float: left;width: 540px;}
+.magictt-investment-producttj ul li.first{margin-right: 70px;}
+.magictt-investment-producttj ul li div{width: 100%;height: 78px;background: #14baf2;padding-top: 22px;}
+.magictt-investment-producttj ul li div h3{font-size: 24px;}
+.magictt-investment-producttj ul li div p{font-size: 16px;}
+
+/*advantage*/
+.magictt-investment-advantage{width: 100%;min-width: 1200px;/*height: 630px;background: url(../img/investment/magictt-investment-speail01.png) no-repeat;background-size: 100% 672px;padding-top: 42px;*/}
+/*.magictt-investment-advantage-left h2{font-size: 48px;margin:0 0 47px 220px;}
+.magictt-investment-advantage-left ul{width: 684px;position: absolute;left: -20px;}
+.magictt-investment-advantage-left ul li{float: left;margin:0 4px 4px 0;}
+.magictt-investment-advantage-left ul li img{border: 2px solid #047aba;}
+.magictt-investment-advantage-left ul li div{width: 224px;height: 45px;background: #047aba;line-height: 45px;}
+.magictt-investment-advantage-left ul li div p{text-align: center;font-size: 18px;color: #fff;}
+.magictt-investment-advantage-right{}*/
+
+/*pk*/
+.magictt-investment-pk{width: 100%;height: 1420px;min-width: 1205px;background: #ebeef5;padding-top: 80px;}
+.magictt-investment-pk h2{font-size: 48px;color: #f76634;margin-bottom: 40px;}
+.magictt-investment-pk span.magicpk_span{display: block;width: 430px;height: 85px;background: #f77f56;border-radius: 100px;margin: 0 auto 76px auto;font-size: 30px;text-align: center;line-height: 85px;color: #fff;}
+.magictt-investment-pk-left dl,.magictt-investment-pk-right dl{width: 495px;height: 200px;padding: 10px;background: #fff;margin-bottom: 33px;border-radius: 6px;position: relative;}
+.magictt-investment-pk-left dl dd,.magictt-investment-pk-right dl dd{margin-left: 30px;}
+.magictt-investment-pk-left dl dd h3,.magictt-investment-pk-right dl dd h3{font-size: 30px;margin-bottom: 15px;}
+.magictt-investment-pk-center{width: 4px;height: 1270px;background: #f77f56;margin-left: 83px;margin-top: -76px;position: relative;}
+.magictt-investment-pk-center ul li{width: 95px;height: 95px;border-radius: 50%;background: #f77f56;line-height: 95px;text-align: center;color: #fff;font-size: 24px;position: absolute;left: -43px;}
+.magictt-investment-pk-center ul li.one{top:80px;}
+.magictt-investment-pk-center ul li.two{top: 332px;}
+.magictt-investment-pk-center ul li.three{top: 585px;}
+.magictt-investment-pk-center ul li.four{top: 832px;}
+.magictt-investment-pk-left dl i{display: block;width: 27px;height: 24px;background: url(../img/investment/after.png) no-repeat;background-size: 27px 24px;position: absolute;top: 33px;right: -27px;}
+.magictt-investment-pk-right dl i{display: block;width: 27px;height: 24px;background: url(../img/investment/before.png) no-repeat;background-size: 27px 24px;position: absolute;top: 33px;left: -27px;}
+
+
+/*teacher*/
+.magictt-investment-teacher{width: 100%;height: 600px;background: #fff;min-width: 1200px;}
+.magictt-investment-teacher-left{width: 485px;height: 616px;background: url(../img/investment/magictt-investment-teacher01.png) no-repeat;background-size: 515px 714px;margin-top: -140px;padding: 98px 15px 0 15px;}
+.magictt-investment-teacher-left h2{font-size: 33px;}
+.magictt-investment-teacher-left h3{font-size: 22px;margin: 20px 0 30px 0;}
+.magic-investment-dotted{width: 480px;height: 1px;border-bottom: 1px dotted #fff;margin: 0 auto 30px auto;}
+.magictt-investment-teacher-jieshao dl dd{margin-left: 15px;}
+.magictt-investment-teacher-jieshao dl dd h4{font-size: 16px;color: #8c2400;}
+.magictt-investment-teacher-jieshao dl dd p{font-size: 16px;color: #fff;margin-bottom: 15px;}
+.magictt-investment-teacher-jieshao dl dd p font{font-weight: bold;}
+.magictt-investment-teacher-right{margin: 128px 0 0 60px;}
+.magictt-investment-teacher-right dl{margin-bottom: 53px;}
+.magictt-investment-teacher-right dl dt em{font-size: 93px;color: #e1e1e1;font-weight: bold;}
+.magictt-investment-teacher-right dl dd p.one{font-size: 32px;color: #f99d35;font-weight: bold;margin-top: -20px;}
+.magictt-investment-teacher-right dl dd p.two{font-size: 21px;color: #808080;margin-top: 15px;}
+
+/*repay*/
+.magictt-investment-repay{width: 100%;height: 1737px;background: url(../img/investment/magictt-investment-back01.png) no-repeat;background-size: 100% 1782px;min-width: 1205px;padding-top: 45px;}
+.magictt-investment-repay-top h2,.magictt-investment-repay-deserve h2{font-size: 48px;}
+.magictt-investment-repay-top p,.magictt-investment-repay-deserve p{font-size: 30px;color: #666;margin-top: 35px;}
+.magictt-investment-repay-deserve{margin-top: 115px;}
+
+/*hot*/
+.magictt-investment-hot{width: 100%;min-width: 1200px;height: 650px;background: #f8fafd;padding-top: 70px;position: relative;overflow: hidden;}
+.magictt-investment-hot h2{font-size: 48px;}
+.magictt-investment-hot p{font-size: 30px;color: #666;margin: 30px 0 70px 0;}
+
+
+/*走马灯 样式*/
+.poster-main{position: relative;margin: 0px auto;}
+.poster-main .poster-list .poster-item{position: absolute;left: 0;top: 0;}
+.poster-main .poster-btn{position: absolute;top: 0;cursor: pointer;}
+.poster-main .poster-prev-btn{left: -200px;background: url(../img/investment/hot_left.png) no-repeat center center;}.poster-main .poster-next-btn{right: -200px;background: url(../img/investment/hot_right.png) no-repeat center center;}
+
+/*加盟流程*/
+.magictt-investment-step{width: 100%;min-width: 1205px;height: 800px;background: url(../img/investment/magictt-investment-stepbg.png) no-repeat;background-size: 100% 879px;padding-top: 79px;}
+.magictt-investment-step h2{font-size: 74px;margin-bottom: 80px;}
+.magictt-investment-step p{font-size: 39px;}
+.magictt-investment-step-con{margin-top: 115px;}
+.magictt-investment-step-con h3{font-size: 48px;}
+.magictt-investment-step-con span{display: block;font-size: 30px;margin: 38px 0 0 0;}
+.magictt-investment-step-con ul li{float: left;margin-top: 53px;}
+.magictt-investment-step-con ul li i{display: block;width: 19px;height: 35px;background: url(../img/investment/arrow.png) no-repeat center center;background-size: 19px 35px;margin: 60px 15px 0 15px;}
+.magictt-investment-step-con ul li a p{color: #fff;text-align: center;font-size: 20px;margin-top: 32px;}
+
+/*表单*/
+.magictt-investment-form{width: 100%;height: 476px;min-width: 1205px;background: url(../img/investment/magictt-investment-formbg.png) no-repeat;background-size: 100% 576px;padding-top: 100px;}
+.magictt-investment-form h2{font-size: 48px;margin-bottom: 42px;}
+.magictt-investment-form-con{margin-left: 330px;}
+.magictt-investment-form-con span{font-size: 14px;color: #fff;}
+.magictt-investment-form-con p{margin-top: 10px;}
+.magictt-investment-form-con input[type="text"]{height: 32px;border: 1px solid #605e7b;border-radius: 6px;margin-left: 15px;background: #4c4a66;color: #fff;font-size: 14px;}
+.magictt-investment-form-con input[type="text"]::-moz-placeholder{color:#fff;}
+.magictt-investment-form-con input[type="text"]::-ms-input-placeholder{color:#fff;}
+.magictt-investment-form-con input[type="text"]::-webkit-input-placeholder{color:#fff;}
+.magictt-investment-form-con input.small{width: 167px;padding-left: 10px;}
+.magictt-investment-form-con input.big{width: 455px;padding-left: 10px;}
+#btn{width: 165px;height: 30px;background: #4ea0ea;border-radius: 6px;line-height: 30px;text-align: center;font-size: 18px;color: #fff;margin: 30px 0 0 90px;}

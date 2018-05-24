@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="app">
+		<!-- 花括号 ：moustache -->
+		<!-- v-on v-bind
+		 v-if	: 操作Dom
+		 v-show  ：操作样式
+			v-model v-for v-text v-html v-once-->
+		<p>{{msg}}</p>
+		<p v-show = "false">123242</p>
+		<p v-if = "false">123242</p>
+		<input type="checkbox" name="" v-model = "a">{{a}}<br/>
+		<input type="checkbox" v-model = "b" value="1">1<br/>
+		<input type="checkbox" v-model = "b" value="2">2<br/>
+		<input type="checkbox" v-model = "b" value="3">3<br/>
+		{{b}}<br/>
+		<!--  多个复选框   需要增加value属性  数组 -->
+		<input type="radio" value="men" v-model="c">
+		<input type="radio" value="women" v-model="c">{{c}}<br/>
+		<select id="sel" v-model="d">
+			<option value="1111" >1111</option>
+			<option value="1112">1112</option>
+			<option value="1113">1113</option>
+		</select>
+		{{d}}
+	</div>
+	<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el:"#app",
+			data:{
+				msg:"124",
+				a:true,
+				b:[],
+				c:"men",
+				d:""
+			}
+		})
+
+
+		document.getElementById("sel").onchange=function(){
+			console.log(this.value)
+		}
+	</script>
+</body>
+</html>

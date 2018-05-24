@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <body>
+        <p>要使用的视频：</p>
+        <video id="video1" controls width="0" style="position: fixed;bottom:0;" height="0" autoplay src="http://21442.mpull.live.lecloud.com/live/111/desc.m3u8" >
+        	<source src="http://21442.mpull.live.lecloud.com/live/111/desc.m3u8" 
+				     type="application/x-mpegURL">
+        </video>
+        <p>画布（每 20 毫秒，代码就会绘制视频的当前帧）：</p>
+
+        <canvas id="myCanvas" width="270" height="135"></canvas>
+        <botton class="btn">开始/结束</botton>
+        <br />
+        <botton class="btn2">全屏</botton>
+    </body>
+	<script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script>
+	<script src="js/video.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/videojs-contrib-hls.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+    	var player = videojs('video1');
+		player.play();
+        var v = document.getElementById("video1_html5_api");
+        var c = document.getElementById("myCanvas");
+        ctx = c.getContext('2d');
+
+        v.addEventListener('play', function() {
+            var i = window.setInterval(function() {
+                ctx.drawImage(v, 0, 0, 270, 135)
+            }, 20);
+        }, false);
+        function requestFullScreen() {
+		    if (v.requestFullscreen) {
+		        v.requestFullscreen();
+		    } else if (v.mozRequestFullScreen) {
+		        v.mozRequestFullScreen();
+		    } else if (v.webkitRequestFullScreen) {
+		        v.webkitRequestFullScreen();
+		    }
+		}
+		$(".btn").on("click",function(){
+        	if(v.paused) {
+		        v.play();
+		      } else {
+		        v.pause();
+		      }
+        })
+
+        $(".btn2").on("click",function(){
+        	requestFullScreen()
+        })
+    </script>
+
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdn.bootcss.com/vue/2.5.16/vue.min.js"></script>
+    <!-- 基于promise的 -->
+    <script src="https://cdn.bootcss.com/axios/0.18.0/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="row">
+                <h2 class="h2 text-warning text-center">ShopCart</h2>
+                <table class="table table-hover table-bordered">
+                    <tr>
+                        <th>全选<input type="checkbox" v-model="checkAll"></th>
+                        <td>商品</td>
+                        <td>单价</td>
+                        <td>数量</td>
+                        <td>小计</td>
+                        <td>操作</td>
+                    </tr>
+                    <tr v-for="(item,index) in products">
+                        <td>
+                            <input type="checkbox" v-model="item.isSelect">
+                        </td>
+                        <td>
+                            <img :src="item.productCover" alt="" width="100" height="50" :title="item.productName">{{item.productName}}
+                        </td>
+                        <td>
+                            {{item.productPrice}}
+                        </td>
+                        <td>
+                            <input type="number" v-model.number="item.productCount">
+                        </td>
+                        <td>
+                            {{item.productPrice*item.productCount | mytoFixed(2)}}
+                        </td>
+                        <td>
+                            <button class="btn btn-danger" @click="remove(item)">删除</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>总价格：{{sum |mytoFixed(2) }}</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script>
+        let vm = new Vue({
+            el: '#app',
+            // 当给全选赋值时,应要影响其它人的变化,当页面刷新时,获取全选值,是根据下面的CheckBox计算出来的结果,给全选赋值 Object.defineProperty == computed
+            computed: {
+                // 也会放在vm这个实例上,不能与methods和data重名
+                checkAll: {
+                    // get,set中的this都是指向实例
+                    // 默认v-model会获取checkAll的值,所以会调用get方法
+                    // 好处：当products值变化时会重新计算
+                    get() {
+                        return this.products.every(p => p.isSelect);
+                    },
+                    set(val) {
+                        // val -> 当我们给CheckBox赋值的时候
+                        this.products.forEach(item => item.isSelect = val);
+                    }
+                },
+                sum: {
+                    // sum的结果会被缓存,如果依赖的数据没有变化就不会重新执行
+                    // 如果计算属性写成函数的话,那默认调用的就是get
+                    get() {
+                        return this.products.reduce((prev, next) => {
+                            console.log(prev + "," + next);
+                            console.log(next);
+                            if (!next.isSelect) return prev;
+                            return prev + next.productPrice * next.productCount;
+                        }, 0);
+                    }
+                }
+            },
+            created() {
+                this.getData();
+            },
+            methods: {
+                getData() {
+                    axios.get('./product.json').then((res) => {
+                        console.log(res.data);
+                        this.products = res.data;
+                    }, (err) => {
+                        console.log(err);
+                    });
+                },
+                remove(i) {
+                    this.products = this.products.filter(item => item !== i);
+                }
+
+            },
+            data: {
+                products: []
+            },
+            filters: {
+                mytoFixed(val, param1) {
+                    return '￥' + val.toFixed(param1);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

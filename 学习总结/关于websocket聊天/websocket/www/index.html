@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css" />
+    <script src="bootstrap/js/jquery-1.11.0.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">用户名:</h3>
+            </div>
+            <div class="panel-body" style="height: 400px;overflow: auto;">
+
+            </div>
+
+
+        </div>
+        <textarea class="form-control" rows="3" ></textarea>
+        <button type="button" class="btn btn-primary" id="send">发送</button>
+        <button type="button" class="btn btn-primary" id="leave">离开</button>
+        <!--这是一个模态框， 让用户输入自己姓名-->
+        <div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p><input type="text" class="form-control" id="username"/></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" id="save">Save</button>
+
+                    </div>
+                </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+        </div><!-- /.modal -->
+    </div>
+
+
+    <script>
+        $('#myModal').modal({
+            keyboard: false
+        })
+
+        $("#save").click(function(){
+            $(".panel-title").append($("#username").val());
+
+            //把modal 关掉
+            $('#myModal').modal('hide');
+
+            // 挂载到window 下 变成全局变量
+            window.ws = new WebSocket("ws://localhost:8080");
+            ws.onopen = function(){
+                //当连接成功 这个回调函数执行
+                console.log("连接成功");
+
+                var msg = {
+	            	name : $("#username").val(),
+	            	info : "上线了"
+	            }
+                ws.send(JSON.stringify(msg));
+            }
+
+            ws.onmessage = function(massage){
+                //当服务端发送数据 这个回调函数执行
+
+                console.log(massage);
+                var obj = JSON.parse(massage.data)
+                $(".panel-body").append($("<p>").html(obj.name+":"+obj.info))
+                
+	            //调整一下滚动距离
+	            $(".panel-body").scrollTop($(".panel-body")[0].scrollHeight)
+            }
+
+            ws.onclose = function(){
+                //当ws.close() 这个执行
+            }
+
+            ws.onerror = function(){
+                //连接出错 ，这个方法就会调用
+            }
+        })
+
+
+        $("#send").click(function(){
+            //客户端发送消息的方法.
+            var msg = {
+            	name : $("#username").val(),
+            	info : $("textarea").val()
+            }
+
+            //插入p解析
+            ws.send(JSON.stringify(msg));
+
+            //往自己界面添加p标签
+            $(".panel-body").append($("<p style='text-align:right'>").html(msg.name+":"+msg.info))
+
+
+            //调整一下滚动距离
+            $(".panel-body").scrollTop($(".panel-body")[0].scrollHeight)
+        })
+        $("#leave").click(function(){
+        	var msg = {
+            	name : $("#username").val(),
+            	info : "离开了"
+            }
+            ws.send(JSON.stringify(msg));
+            ws.close();
+        })
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0,user-scalable=no">
+<title>欢乐抢福袋</title>
+<link href="css/style.css" rel="stylesheet">
+</head>
+<body class="game_bg">
+<div class="countdown">
+  <div class="wall"><img src="images/pic3.png"></div>
+  <span class="countdown_num">3</span></div>
+<div class="rain-wrap hide">
+  <div class="over_date">倒计时 <span class="date_time">30</span> 秒</div>
+</div>
+<div class="pop hide">
+  <div class="pop_bg">
+    <div class="wall dw"><img src="images/boxtop.png">
+      <div class="pop_close"></div>
+    </div>
+    <!--没有抢到福袋-->
+    <div class="fd_pop hide" id="fd_pop1">
+      <div class="fd_title wall"><img src="images/font5.png"></div>
+      <div class="fd_con">
+        <div class="fd_font">好可惜，没有抢到福袋，换个姿势重新来吧！</div>
+        <div class="align_c"><a class="pop_btn" href="index.html"><img src="images/btn2.png"></a></div>
+      </div>
+    </div>
+    <!--游戏超时-->
+    <div class="fd_pop hide" id="fd_pop2">
+      <div class="fd_title wall"><img src="images/font6.png"></div>
+      <div class="fd_con">
+        <div class="fd_font">还没准备好？换个姿势重新来吧！</div>
+        <div class="align_c"><a class="pop_btn" href="index.html"><img src="images/btn2.png"></a></div>
+      </div>
+    </div>
+    <!--活动已结束-->
+    <div class="fd_pop hide" id="fd_pop3">
+      <div class="fd_title wall"><img src="images/font7.png"></div>
+      <div class="fd_con">
+        <div class="fd_font">活动已经结束啦！</div>
+        <div class="align_c"><a class="pop_btn" href="index.html"><img src="images/btn1.png"></a></div>
+      </div>
+    </div>
+    <!--活动尚未开始-->
+    <div class="fd_pop hide" id="fd_pop4">
+      <div class="fd_title wall"><img src="images/font3.png"></div>
+      <div class="fd_con">
+        <div class="fd_font">活动尚未开始哦！</div>
+        <div class="align_c"><a class="pop_btn" href="index.html"><img src="images/btn1.png"></a></div>
+      </div>
+    </div>
+    <!--今日份额已抢-->
+    <div class="fd_pop hide" id="fd_pop5">
+      <div class="fd_title wall"><img src="images/font4.png"></div>
+      <div class="fd_con">
+        <div class="fd_font">您已经抢3次啦，明日再战！</div>
+        <div class="align_c"><a class="pop_btn" href="index.html"><img src="images/btn1.png"></a></div>
+      </div>
+    </div>
+    <!--中奖了-->
+    <div class="fd_pop hide" id="fd_pop6">
+      <div class="fd_title wall"><img src="images/font8.png"></div>
+      <div class="fd_con"> 
+        <!--蜘蛛网-->
+        <div class="page_box hide" id="win_pop1">
+          <div class="wd_font">恭喜您获得蜘蛛电影<span>108元优惠券礼包</span>！<br>
+            券码将短信发送到您的手机哦！</div>
+          <div class="pop_pic wall"><img src="images/q8.png"></div>
+        </div>
+        <!--御泥坊-->
+        <div class="page_box hide" id="win_pop2">
+          <div class="wd_font">恭喜您获得御泥坊<span>4片装面膜</span>兑换券！<br>
+            券码将短信发送到您的手机哦！</div>
+          <div class="pop_pic wall"><img src="images/q7.png"></div>
+        </div>
+        <!--聚力视频-->
+        <div class="page_box hide" id="win_pop3">
+          <div class="wd_font">恭喜您获得聚力视频<span>1个月会员体验券</span>！<br>
+            券码将短信发送到您的手机哦！</div>
+          <div class="pop_pic wall"><img src="images/q6.png"></div>
+        </div class="page_box">
+        <!--小狗电器-->
+        <div class="page_box hide" id="win_pop4">
+          <div class="wd_font">恭喜您获得小狗电器<span>除螨仪350元抵用券</span>！<br>
+            券码将短信发送到您的手机哦！</div>
+          <div class="pop_pic wall"><img src="images/q5.png"></div>
+        </div>
+        <!--流量优惠券-->
+        <div class="red_box hide" id="win_pop5">
+          <div class="wd_font">恭喜您获得<span>1元</span>流量优惠券！<br>
+          </div>
+          <div class="pop_pic wall"><img src="images/q1.png"></div>
+        </div>
+        <!--水电煤优惠券-->
+        <div class="red_box hide" id="win_pop6">
+          <div class="wd_font">恭喜您获得<span>3元</span>水电煤优惠券！<br>
+          </div>
+          <div class="pop_pic wall"><img src="images/q2.png"></div>
+        </div>
+        <!--保险优惠券-->
+        <div class="red_box hide" id="win_pop7">
+          <div class="wd_font">恭喜您获得<span>5元</span>保险优惠券！<br>
+          </div>
+          <div class="pop_pic wall"><img src="images/q3.png"></div>
+        </div>
+        <!--车罚优惠券-->
+        <div class="red_box hide"  id="win_pop8">
+          <div class="wd_font">恭喜您获得<span>5元</span>车罚优惠券！<br>
+          </div>
+          <div class="pop_pic wall"><img src="images/q4.png"></div>
+        </div>
+        <div class="win_btn align_c"><a class="pop_btn"><img src="images/btn2.png"></a></div>
+      </div>
+    </div>
+    <div class="wall boxbt"><img src="images/boxbt.png"></div>
+  </div>
+</div>
+<script src="js/jquery-1.9.1.min.js"></script> 
+<script type="text/javascript" src="js/rain.js" ></script> 
+<script>
+$(function(){
+	var countdown=$(".countdown_num").html();
+	var interval1=setInterval(function(){ 
+		if (countdown == 0){
+			clearInterval(interval1);
+			$(".rain-wrap").show(); 
+			$(".countdown").hide();
+			var a =0;
+			function clickFun(){
+				var src=$(this).attr("src");
+				src=src.substring(src.length-5,src.length-4);
+				if(src>=3 && src<6){$(this).attr("src","images/fd7.png");}
+				else if(src<3 && src<6){$(this).attr("src","images/fd6.png");}				
+				$(this).fadeOut(500);
+				a++;
+				if(a == 5){
+					$(".pop,#fd_pop6,#win_pop1").show();
+					$(".rain-wrap,#fd_pop2").remove();
+				}
+			}
+			$('.rain-wrap').redEnvelope({'clickFun':clickFun});
+			var over_time=$(".date_time").html();
+			var interval2=setInterval(function(){ 
+				if (over_time == 0){
+					clearInterval(interval2);
+					$(".pop,#fd_pop2").show();
+					$(".rain-wrap").remove();
+				} 
+				else 
+				{
+					over_time--;
+					$(".date_time").html(over_time);
+				}
+			} ,1000);
+		} 
+		else 
+		{ 	 
+			countdown--; 
+			$(".countdown_num").html(countdown);
+		}
+	} ,1000);
+})
+</script>
+</body>
+</html>

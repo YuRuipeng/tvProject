@@ -1,0 +1,398 @@
+div {
+  zoom: 1;
+}
+div:after {
+  clear: both;
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+.m-eg-videoPlay {
+  background: #eee;
+  width: 100%;
+  height: 100%;
+}
+.m-eg-videoDet-banner {
+  width: 100%;
+  height: 230px;
+}
+.m-eg-videoDet-look {
+  height: 20px;
+  position: absolute;
+  top: 150px;
+  right: 30px;
+}
+.m-eg-videoDet-look img {
+  width: 18px;
+  height: 11px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 1px;
+}
+.m-eg-videoDet-look p {
+  font-size: 13px;
+  color: #fff;
+  display: inline-block;
+  height: 20px;
+}
+.m-eg-videoDet-look p i {
+  font-style: normal;
+}
+.m-eg-videoDet-select {
+  width: 100%;
+  position: relative;
+  height: auto;
+}
+.m-eg-videoDet-select .select-list {
+  width: 100%;
+  height: 35px;
+  display: flex;
+  background: #fff;
+}
+.m-eg-videoDet-select .select-list li {
+  flex: 1;
+  text-align: center;
+  line-height: 35px;
+  color: #50acfe;
+  font-size: 13px;
+}
+.m-eg-videoDet-select .select-list .active {
+  color: #fff;
+  background: #50acfe;
+}
+.m-eg-videoDet-select .select-content {
+  width: 100%;
+  background: #eee;
+  padding-bottom: 55px;
+  min-height: 280px;
+}
+.m-eg-videoDet-select .select-content .content-talk {
+  width: 95%;
+  height: auto;
+  margin: 0 auto;
+}
+.m-eg-videoDet-select .select-content .content-talk .content-talk-li {
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+.m-eg-videoDet-select .select-content .content-talk .content-talk-li .content-talk-li-headImg {
+  height: 70px;
+  flex: 1;
+  position: relative;
+}
+.m-eg-videoDet-select .select-content .content-talk .content-talk-li .content-talk-li-headImg img {
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid #ffac20;
+  border-radius: 50%;
+}
+.m-eg-videoDet-select .select-content .content-talk .content-talk-li .content-talk-li-text {
+  width: 75%;
+  position: relative;
+  height: 100%;
+  padding-top: 12px;
+}
+.m-eg-videoDet-select .select-content .content-talk .content-talk-li .content-talk-li-text .text-top {
+  width: 100%;
+  height: 20px;
+}
+.m-eg-videoDet-select .select-content .content-talk .content-talk-li .content-talk-li-text .text-top .text-top-p1 {
+  float: left;
+}
+.m-eg-videoDet-select .select-content .content-talk .content-talk-li .content-talk-li-text .text-top .text-top-p2 {
+  float: right;
+  margin-right: 20px;
+}
+.m-eg-videoDet-select .select-content .content-talk .content-talk-li .content-talk-li-text .text-top p {
+  color: #999;
+  font-size: 12px;
+}
+.m-eg-videoDet-select .select-content .content-talk .content-talk-li .content-talk-li-text .text-bot {
+  background: #fff;
+  color: #333;
+  font-size: 13px;
+  padding: 5px;
+  display: inline-block;
+  margin-right: 20px;
+}
+.m-eg-videoDet-select .select-content .m-gd-public-listOne {
+  width: 100%;
+  height: auto;
+}
+.m-eg-videoDet-select .select-content .m-gd-public-listOne .listOne-li {
+  width: 95%;
+  height: 100px;
+  margin: 0 auto;
+  padding: 5px 0;
+  display: flex;
+  border-bottom: 1px solid #eee;
+}
+.m-eg-videoDet-select .select-content .m-gd-public-listOne .listOne-li a {
+  display: flex;
+}
+.m-eg-videoDet-select .select-content .m-gd-public-listOne .listOne-li .listOne-li-left {
+  height: 100%;
+  position: relative;
+  flex: 1;
+}
+.m-eg-videoDet-select .select-content .m-gd-public-listOne .listOne-li .listOne-li-left .left-img {
+  width: 140px;
+  height: 100%;
+  border-radius: 5px;
+}
+.m-eg-videoDet-select .select-content .m-gd-public-listOne .listOne-li .listOne-li-left div {
+  width: 43px;
+  height: 23px;
+  position: absolute;
+  background: rgba(51, 51, 51, 0.8);
+  left: 8px;
+  bottom: 8px;
+  text-align: center;
+}
+.m-eg-videoDet-select .select-content .m-gd-public-listOne .listOne-li .listOne-li-left div img {
+  display: inline-block;
+  vertical-align: middle;
+  width: 5px;
+  height: 5px;
+}
+.m-eg-videoDet-select .select-content .m-gd-public-listOne .listOne-li .listOne-li-left div p {
+  font-size: 12px;
+  color: #fff;
+  height: 20px;
+  line-height: 20px;
+  display: inline-block;
+}
+.m-eg-videoDet-select .select-content .m-gd-public-listOne .listOne-li .listOne-li-right {
+  height: 100%;
+  position: relative;
+}
+.m-eg-videoDet-select .select-content .m-gd-public-listOne .listOne-li .listOne-li-right .listOne-li-right-title {
+  padding-left: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #333;
+  font-size: 16px;
+}
+.m-eg-videoDet-select .select-content .m-gd-public-listOne .listOne-li .listOne-li-right .listOne-li-right-titleSml {
+  padding-left: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #333;
+  font-size: 13px;
+}
+.m-eg-videoDet-select .select-content .m-gd-public-listOne .listOne-li .listOne-li-right .listOne-li-right-bot {
+  padding-left: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.m-eg-videoDet-select .select-content .m-gd-public-listOne .listOne-li .listOne-li-right .listOne-li-right-bot .bot-p1 {
+  float: left;
+  font-size: 13px;
+}
+.m-eg-videoDet-select .select-content .m-gd-public-listOne .listOne-li .listOne-li-right .listOne-li-right-bot .bot-p2 {
+  float: right;
+  font-size: 13px;
+  color: #999;
+}
+.m-eg-videoDet-select .select-content .select-content-option {
+  width: 100%;
+  height: auto;
+  padding-top: 5px;
+}
+.m-eg-videoDet-select .select-content .select-content-option .select-content-option-list {
+  width: 95%;
+  margin: 0 auto;
+  height: 92px;
+  background: #fafafa;
+  border-radius: 5px;
+  margin-top: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.m-eg-videoDet-select .select-content .select-content-option .select-content-option-list .list-left {
+  width: 60%;
+  height: 82px;
+  float: right;
+}
+.m-eg-videoDet-select .select-content .select-content-option .select-content-option-list .list-left .list-left-top {
+  width: 100%;
+  height: 60px;
+  padding-top: 5px;
+}
+.m-eg-videoDet-select .select-content .select-content-option .select-content-option-list .list-left .list-left-top .top-p1 {
+  height: 20px;
+  font-size: 15px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.m-eg-videoDet-select .select-content .select-content-option .select-content-option-list .list-left .list-left-top .top-p2 {
+  font-size: 12px;
+  color: #999;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.m-eg-videoDet-select .select-content .select-content-option .select-content-option-list .list-left .list-left-bot {
+  width: 100%;
+  margin-top: 5px;
+}
+.m-eg-videoDet-select .select-content .select-content-option .select-content-option-list .list-left .list-left-bot .p1 {
+  font-size: 12px;
+  color: #bbb;
+  float: right;
+}
+.m-eg-videoDet-select .select-content .select-content-option .select-content-option-list .list-left .list-left-bot div {
+  float: left;
+}
+.m-eg-videoDet-select .select-content .select-content-option .select-content-option-list .list-left .list-left-bot div p {
+  font-size: 12px;
+  color: #bbb;
+  float: left;
+}
+.m-eg-videoDet-select .select-content .select-content-option .select-content-option-list .list-left .list-left-bot div p img {
+  width: 13px;
+  height: 12px;
+  display: inline-block;
+  margin: 3px 3px 0 0;
+}
+.m-eg-videoDet-select .select-content .select-content-option .select-content-option-list .list-left .list-left-bot div .p2 img {
+  height: 13px;
+}
+.m-eg-videoDet-select .select-content .select-content-option .select-content-option-list .list-right {
+  width: 39%;
+  height: 100%;
+  position: relative;
+  float: left;
+}
+.m-eg-videoDet-select .select-content .select-content-option .select-content-option-list .list-right .right-img {
+  width: 90%;
+  height: 100%;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+.m-eg-videoDet-select .select-content .select-content-option .select-content-option-list .list-right div {
+  height: 25px;
+  position: absolute;
+  background: rgba(51, 51, 51, 0.7);
+  left: 10px;
+  bottom: 8px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 0 5px;
+}
+.m-eg-videoDet-select .select-content .select-content-option .select-content-option-list .list-right div .img2 {
+  display: inline-block;
+  vertical-align: middle;
+  width: 10px;
+  height: 10px;
+  margin-bottom: 2px;
+}
+.m-eg-videoDet-select .select-content .select-content-option .select-content-option-list .list-right div p {
+  font-size: 12px;
+  color: #fff;
+  height: 20px;
+  line-height: 27px;
+  display: inline-block;
+}
+.m-eg-videoDet-select .select-content .content-intro {
+  width: 95%;
+  height: auto;
+  margin: 0 auto;
+  background: #fff;
+  margin-top: 10px;
+  padding: 0 5px;
+  padding-top: 10px;
+}
+.m-eg-videoDet-select .select-content .content-intro .content-intro-title {
+  width: 100%;
+  border-left: 3px solid #50acfe;
+  width: 90%;
+  margin: 0 auto;
+}
+.m-eg-videoDet-select .select-content .content-intro .content-intro-title p {
+  color: #333;
+  font-size: 16px;
+  letter-spacing: 1px;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+.m-eg-videoDet-select .select-content .content-intro .content-intro-text p {
+  color: #666;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-indent: 15px;
+}
+.m-eg-videoDet-select .select-content-acitve {
+  display: block;
+}
+.m-eg-videoDet-select .content-send {
+  width: 100%;
+  height: 55px;
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  z-index: 10;
+}
+.m-eg-videoDet-select .content-send input {
+  width: 70%;
+  height: 33px;
+  margin-top: 11px;
+  border-radius: 33px;
+  outline: none;
+  border: 1px solid #333;
+  margin-left: 25px;
+  padding-left: 10px;
+  font-size: 13px;
+}
+.m-eg-videoDet-select .content-send .content-send-btn {
+  width: 20%;
+  height: 55px;
+  float: right;
+  position: relative;
+}
+.m-eg-videoDet-select .content-send .content-send-btn img {
+  width: 33px;
+  height: 33px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+}
+.m-eg-videoDet-select .mescroll-upwarp {
+  display: inline-block;
+}
+.m-eg-videoDet-select .m-eg-live-load {
+  position: absolute;
+  top: 35px;
+  z-index: 9;
+  background: #eee;
+  height: 365px;
+}
+.m-eg-videoDet-select .content-img {
+  width: 42px;
+  height: auto;
+  position: fixed;
+  bottom: 135px;
+  right: 20px;
+}
+.m-eg-videoDet-select .content-img img {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}

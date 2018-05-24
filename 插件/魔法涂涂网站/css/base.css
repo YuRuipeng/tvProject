@@ -1,0 +1,170 @@
+/****
+ * 公共样式表
+ */
+
+/**
+ * 1.样式重置
+ */
+html,
+body {
+  min-height: 100%;
+}
+html{font-size: 10px;}
+/*清除内外边距 */
+body, div, p, h1, h2, h3, h4, h5, h6, blockquote,  /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre,  /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea,  /* form elements 表单元素 */
+table,th,td /* table elements 表格元素 */{
+	margin:0;
+	padding:0;
+}
+body,
+button, input, select, textarea /* for ie */ {
+    font: 12px/24px Arial, 'Microsoft Yahei',"宋体", sans-serif;
+}
+/*h1, h2, h3, h4, h5, h6 { font-size: 100%; }*/
+address, cite, em, i { font-style: normal; } /* 将斜体扶正 */
+small { font-size: 12px; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
+/** 重置列表元素 **/
+li { list-style: none; }
+/** 重置文本格式元素 **/
+a { text-decoration: none;color: #333; }
+a:hover { text-decoration: none; }
+/** 重置表单元素 **/
+legend { color: #000; } /* for ie6 */
+fieldset, img { border: 0; } /* img 搭车：让a链接里的 img 无边框 */
+button, input, select, textarea { font-size: 100%; line-height:normal; } /* 使得表单元素在 ie 下能继承字体大小 */
+input[type="button"],input[type="submit"],input[type="reset"]{cursor:pointer;}
+input{outline: none;border: none;}
+/** 重置表格元素 **/
+table{ border-collapse: collapse; border-spacing: 0; }
+/*重置图片*/
+img{vertical-align: top;border: none;display: block;}
+/* ie6 7 8(q) bug  */
+iframe{display:block;}
+
+/**
+ * 2.公共样式
+ */
+
+/* 清浮动 */
+.clearfix:after {
+	visibility:hidden;
+	display:block;
+	font-size:0;
+	content:" ";
+	clear:both;
+	height:0;
+}
+.clearfix {
+	zoom:1; /* for IE6 IE7 */
+	/*clear: both;*/
+}
+
+/*左右浮动*/
+.fl{float: left;}
+.fr{float: right;}
+
+/*设计稿尺寸  公共盒子*/
+.container{width: 1200px;margin: 0 auto;}
+.container1205{width: 1205px;margin: 0 auto;}
+
+.marginl110{margin-left: 90px;}
+.margint10{margin-top: 10px;}
+.img-responsive{display: block;max-width: 100%;height: auto;}
+.ellipsis { overflow: hidden; text-overflow: ellipsis; display: block; white-space: nowrap }
+.fwn{font-weight: normal;}
+
+.ml98{margin-left: 98px;}
+.ml245{margin-left: 245px;}
+.ml200{margin-left: 200px;}
+.ml115{margin-left: 115px;}
+.ml175{margin-left: 175px;}
+.ml300{margin-left: 300px;}
+.ml225{margin-left: 225px;}
+.w278{width: 278px;}
+.w380{width: 380px;}
+.w350{width: 350px;}
+.w384{width: 384px;}
+.w170{width: 190px;}
+.w245{width: 245px;}
+.w135{width: 135px;}
+.height663{height: 663px;}
+.height672{height: 672px;}
+.height760{height: 760px;}
+.height800{height: 800px;}
+.height742{height: 742px;}
+.height450{height: 450px;}
+.height515{height: 515px;}
+.height525{height: 525px;}
+.mt90{margin-top: 90px;}
+.height495{height: 495px;}
+.mt115{margin-top: 115px;}
+.mt285{margin-top: 285px;}
+.mt15{margin-top: 15px;}
+.mt253{margin-top: 253px;}
+.mt190{margin-top: 190px;}
+.mt120{margin-top: 120px;}
+.mt165{margin-top: 165px;}
+.mt160{margin-top: 160px;}
+.mt80{margin-top: 80px;}
+.mr60{margin-right: 60px;}
+.mt20{margin-top: 20px;}
+.m0a{margin: 0 auto;}
+.center{text-align: center;}
+.color-fff{color: #fff;}
+.color-b{color: #151617;}
+.color-3d{color: #3d3d3d;}
+.color-1e{color: #1e1e1e;}
+.color-b4{color: #b4b4b4;}
+.color-f7{color:#f77f56;}
+.bf6{background: #f6fafd;}
+.bold{font-weight: bold;}
+
+/*公共头部*/
+
+/*header*/
+.magictt-index-header{width: 100%;height: 90px;background: #fff;box-shadow: 1px 1px 5px rgba(0,0,0,0.2);z-index: 999;position: fixed;top: 0;}
+.header-container{position: relative;height: 90px;}
+.magictt-index-header-logo h1{text-indent: -9999px;background: url(../img/index/logo.png) no-repeat;background-size: 137px 135px;width: 137px;height: 135px;position: absolute;top: 10px;z-index: 9999;}
+.magictt-index-header-nav{margin:30px 0 0 250px;}
+.magictt-index-header-nav ul li{width: 100px;height: 30px;float: left;line-height: 30px;text-align: center;margin-right: 20px;border: 2px solid #fff;}
+.magictt-index-header-nav ul li a{font-size: 14px;color: #363535;font-weight: 500;}                              
+.magictt-index-header-nav ul li.active,.magictt-index-header-nav ul li:hover{border: 2px solid #25264a;border-radius: 50px;}
+.magictt-index-header-tel{margin-top: 33px;}
+.magictt-index-header-tel dl dd{margin-left: 7px;}
+.magictt-index-header-tel dl dd h3{color: #8b8b8b;margin-top: -5px;}
+.magictt-index-header-tel dl dd p{font-size: 18px;color: #f78a21;font-style: italic;}
+
+.sub{width: 100%;height: 150px;min-width: 1200px;position: absolute;top: 90px;background: #fff;padding: 20px 0;display: none;z-index: 999;background: url(../img/index/line.png) repeat-x;background-size: 1px 189px;}
+.sub ul li{float: left;margin-right: 40px;}
+.sub ul li a img{opacity: 1;}
+.sub ul li.first{margin-left: 290px;}
+/*公共底部*/
+
+/*footer*/
+.magictt-index-footer{width: 100%;height: 270px;background: #252837;padding-top: 35px;position: relative;overflow: hidden;}
+.magictt-index-footer-left-top{margin-left: 34px;}
+.magictt-index-footer-left-top dl{margin-right: 27px;}
+.magictt-index-footer-left-top dl dd p{text-align: center;color: #fff;font-size: 14px;margin-top: 10px;}
+.magictt-index-footer-left-top-right{margin-top: 30px;}
+.magictt-index-footer-left-top-right ul li{float: left;margin-right: 15px;padding-right: 10px;margin-bottom: 17px;}
+.magictt-index-footer-left-top-right ul li a{font-size: 14px;color: #fff;}
+.magictt-index-footer-left-top-right ul li a:hover{color: #f78a21;}
+.magictt-index-footer-left-top-right ul li.first{background: url(../img/index/magictt-footer-iconline.png) no-repeat right center;background-size: 1px 15px;}
+.magictt-index-footer-left-top-right span{color: #fff;font-size: 14px;display: inline-block;}
+.magictt-index-footer-left-bottom{font-size: 12px;color: #4a506e;margin: 48px 0 0 34px;}
+.magictt-index-footer-right{margin: 70px 60px 0 0;}
+.magictt-index-footer-right dl dd{margin-left: 10px;margin-top: -5px;}
+.magictt-index-footer-right dl dd h3{font-size: 14px;color: #fff;font-weight: normal;}
+.magictt-index-footer-right dl dd p{font-size: 14px;color: #fff;}
+.magictt-index-footer-right dl dd h2{font-size: 24px;color: #f78a21;}
+.footer-line{width: 100%;height: 1px;background: #2e3140;position: absolute;bottom: 115px;}
+.f{background: #fff;}
+.b{color: #7b7a7a;}
+
+
+::-webkit-scrollbar {width: 4px;height: 4px}
+::-webkit-scrollbar-thumb {border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px;background-color: #aaa;}
+::-webkit-scrollbar-track {background-color: transparent}

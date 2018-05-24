@@ -1,0 +1,84 @@
+/*
+	产品中心-航海历险记 
+*/
+/*section01*/
+.magictt-productCenter-section01{z-index:1;width: 100%;height: 672px;background: #223778;margin-top: 90px;padding-top: 96px;position: relative;}
+.magictt-productCenter-section01 h1{font-size: 32px;font-weight: normal;}
+.magictt-productCenter-section01 p{font-size: 22px;margin-top: 20px;}
+.magictt-productCenter-section01-bottom{width: 100%;height: 92px;min-width: 1200px;background: url(../img/productCenter/magictt-productCenter-section01-imgbottom.png) no-repeat;background-size: 100% 92px;}
+
+/*section02*/
+.magictt-productCenter-section02{width: 100%;height: 761px;background: #fff;padding-top: 43px;}
+.magictt-productCenter-section02 p{font-size: 18px;width: 566px;margin-bottom: 60px;line-height: 32px;}
+
+/*section03*/
+.magictt-productCenter-section03-top{width: 100%;height: 383px;min-width: 1200px;background: url(../img/productCenter/magictt-productCenter-section03-img02.png) no-repeat;background-size: 100% 585px;padding-top: 202px;}
+.magictt-productCenter-section03-top h2{font-size: 30px;color:#333;font-weight: normal;margin:20px 0 0 130px;}
+.magictt-productCenter-section03-top p{font-size: 18px;color: #333;margin:20px 0 0 130px;}
+.magictt-productCenter-section03-bottom{width: 100%;overflow: hidden;border-bottom: 1px solid #ededed;}
+.magictt-productCenter-section03-bottom h3{font-size: 24px;color: #333;font-weight: bold;}
+.magictt-productCenter-section03-bottom h3 font{font-style: oblique;}
+.magictt-productCenter-section03-bottom p{color: #565657;font-size: 18px;line-height: 32px;}
+
+/*section04*/
+.magictt-productCenter-section04{width: 100%;min-width: 1200px;height: 1186px;background: url(../img/productCenter/magictt-productCenter-section04-img01.png) no-repeat;background-size: 100% 1290px;padding-top: 104px;}
+.magictt-productCenter-section04 h3{font-size: 30px;color: #333;font-weight: bold;}
+.magictt-productCenter-section04 p{font-size: 18px;color: #333;}
+.magictt-productCenter-section04 ul{margin-top: 130px;}
+.magictt-productCenter-section04 ul li{float: left;margin-left: 50px;}
+.magictt-productCenter-section04 ul li a{display: block;width: 105px;height: 100px;border-radius: 50%;border: 3px solid #223778;margin-left: 30px;}
+.magictt-productCenter-section04 ul li a img{margin: 30px auto;transition: all 0.5s linear;}
+.magictt-productCenter-section04 ul li a:hover img{transform: rotate(360deg);}
+.magictt-productCenter-section04 ul li h2{margin-top: 50px;}
+.magictt-productCenter-section04 ul li p{text-align: center;margin-top: 10px;}
+
+/*section05*/
+.magictt-productCenter-section05{width: 100%;height: 310px;background: #fbc950;padding-top: 80px;overflow: hidden;}
+.magictt-productCenter-section05 h3{font-size: 30px;margin-top: 60px;}
+.magictt-productCenter-section05 h3 font{font-size: 40px;font-weight: bold;font-style: oblique;}
+.magictt-productCenter-section05 p{margin-top: 20px;}
+
+/*section06*/
+.magictt-productCenter-section06{width: 100%;height: 568px;background: #fff;padding-top: 150px;}
+
+/*section07*/
+.magictt-productCenter-section07{width: 100%;min-width: 1200px;height: 755px;background: url(../img/productCenter/magictt-productCenter-section07-img.png) no-repeat;background-size: 100% 820px;padding-top: 65px;}
+.magictt-productCenter-section07 h3{font-size: 24px;color: #333;font-weight: normal;}
+.section07-con{width: 1060px;height: 601px;background: url(../img/productCenter/magictt-productCenter-section07-img02.png) no-repeat;background-size: 1084px 625px;margin-top: 45px;padding: 12px;position: relative;}
+.pauseimg{width: 101px;height: 101px;background: url(../img/productCenter/pauseimg.png) no-repeat center;background-size: 101px 101px;position: absolute;top: 230px;left: 490px;}
+/*section08*/
+.magictt-productCenter-section08{width: 100%;height:622px;min-width: 1200px;background: url(../img/productCenter/magictt-productCenter-section08-img01.png) no-repeat;background-size: 100% 802px;padding-top: 180px;}
+.magictt-productCenter-section08 h2{font-size: 36px;font-weight: normal;margin-bottom: 120px;}
+.magictt-productCenter-section08 ul li{float: left;}
+.magictt-productCenter-section08 ul li.first{margin-left: 50px;}
+.magictt-productCenter-section08 ul li a{display: block;width: 110px;height: 110px;border: 3px solid #fff;border-radius: 50%;padding: 0;margin-left: 20px;}
+.magictt-productCenter-section08 ul li a img{margin: 37px auto 0 auto;transition: all 0.5s linear;}
+.magictt-productCenter-section08 ul li a:hover img{transform: rotate(360deg);}
+.magictt-productCenter-section08 ul li.arrow{margin-right: 20px;}
+.magictt-productCenter-section08 ul li.arrow img{margin-top: 60px;}
+.magictt-productCenter-section08 ul li h3{font-size: 14px;margin-top: 20px;}
+.magictt-productCenter-section08 ul li p{width: 165px;}
+
+/*
+	产品中心-魔法书 
+*/
+/*s01*/
+.magictt-pc-Book-s01{width: 100%;height: 765px;background: #fff;background: url(../img/productCenter/magictt-pc-Book-s01-img01.png) no-repeat center center;background-size: 1251px 576px;min-width: 1200px;padding-top: 75px;position: relative;z-index: 1;}
+.magictt-pc-Book-s01 h1{font-size: 32px;}
+.magictt-pc-Book-s01 h2,.magictt-pc-Book-s01 h3{font-size: 22px;}
+.magictt-pc-Book-s01 h3{margin-bottom: 80px;}
+
+/*s02*/
+.magictt-pc-Book-s02{width: 100%;height: 720px;min-width: 1200px;background: url(../img/productCenter/magictt-pc-Book-s02-img01.png) no-repeat;background-size: 100% 820px;padding-top: 100px;overflow: hidden;}
+.magictt-pc-Book-s02 h2{font-size: 36px;}
+.magictt-pc-Book-s02 h3{font-size: 24px;}
+
+/*s04*/
+.magictt-pc-Book-s04{width: 100%;height: 259px;min-width: 1200px;background: url(../img/productCenter/magictt-pc-Book-s04-img01.png) no-repeat center;background-size: 100% 479px;padding-top: 220px;}
+.magictt-pc-Book-s04 h2{font-size: 36px;color: #333;}
+
+/*s09*/
+.magictt-pc-Book-s09{width: 100%;height: 800px;min-width: 1200px;background: #59a0e0;}
+.magictt-pc-Book-s09 ul li{margin-bottom: 45px;}
+.magictt-pc-Book-s09 ul li.arrow{margin: 0 120px;}
+.magictt-pc-Book-s09 ul li.sao{margin-left: 50px;}

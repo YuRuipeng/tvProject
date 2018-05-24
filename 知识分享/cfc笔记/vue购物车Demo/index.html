@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/public.css">
+    <link rel="stylesheet" href="./lib/bootstarp/css/bootstrap.css">
+    <link rel="stylesheet" href="./lib/bootstarp/css/bootstrap.min.css">
+    <!--<link rel="stylesheet" href="./lib/bootstarp/css/bootstrap-theme.css">-->
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="shopping">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" v-model="check" @click="support()"> 全选
+                            </label>
+                        </div>
+                    </th>
+                    <th>商品</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="item in server" v-cloak>
+                    <td>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" @change="getSelect(item.isSelect)" v-model="item.isSelect">
+                            </label>
+                        </div>
+                    </td>
+                    <td>{{item.productName}}</td>
+                    <td>{{item.productPrice}}</td>
+                    <td>
+                        <input type="number" class="form-control" id="exampleInputPassword1" min=0 v-model.number="item.productCount">
+                    </td>
+                    <td>{{item.productPrice * item.productCount | retain}}</td>
+                    <td><button type="button" class="btn btn-danger" @click="del(item)">删除</button></td>
+                </tr>
+                <tr v-cloak>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>总价格：{{totalPrice | retain}}</td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+    <script src="./lib/jquery/jquery-3.2.1.js"></script>
+    <script src="./lib/bootstarp/js/bootstrap.js"></script>
+    <script src="./lib/vue/vue.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="./js/index.js"></script>
+</body>
+
+</html>

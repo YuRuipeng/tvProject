@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>defindProperty</title>
+</head>
+<body>
+    
+    <div id="box"></div>
+
+    <script>
+        //基本用法
+        var obj = {};
+        var des = Object.create(null);
+        des.value = 'static';
+        Object.defineProperty(obj,'key',des);
+        console.log(obj.key);
+        //数据描述符
+        var o = {};
+        Object.defineProperty(o,'a',{
+            value: '这是小明',
+            enumerable: true,
+            configurable: true,
+            writable: true,
+        });
+        console.log(o.a);
+        o.a = 13;
+        console.log(o.a);
+        //存取描述符
+        var d = {};
+        var bval
+        Object.defineProperty(d,'b',{
+            get: function(){
+                return bval
+            },
+            set: function(val){
+                bval = val
+            },
+            enumerable : true,
+            configurable : true
+        });
+        d.b = '小红';
+        //实例
+        function Arr(){
+            var tem = null;
+            var pun = [];
+            Object.defineProperty(this,'tem',{
+                get: function(){
+                    return tem;
+                },
+                set: function(val){
+                    tem = val;
+                    pun.push({value: tem});
+                }
+            });
+            this.getArr = function(){return pun};
+        }
+        var list = new Arr();
+        list.tem = 11;
+        list.tem = 12;
+        console.log(list.getArr())
+    </script>
+</body>
+</html>

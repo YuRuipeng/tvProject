@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数字</title>
+    <style>
+        .value {
+            margin: 0 auto;
+            font-family: "Microsoft Yahei";
+            font-size: 30px;
+            color: #333;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="value"></div>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        (function ($) {
+            $.fn.num = function (options,callback) {
+                // 默认传参
+                var defaults = {
+                    speed: 24,
+                    count: 100
+                };
+                // 合并传参
+                var opts = $.extend({}, defaults, options);
+                var div_by = 100,
+                    count = opts['count'],
+                    speed = Math.floor(count / div_by),
+                    sum = 0,
+                    $this = this,
+                    run_count = 1,
+                    int_speed = opts['speed'];
+                var int = setInterval(function(){
+                    if(run_count<=div_by&&speed!=0){
+                        $this.text(sum=speed*run_count+"%");
+                        run_count++;
+                    }else if(sum<count){
+                        $this.text(++sum);
+                    }else{
+                        clearInterval(int);
+                        setTimeout(function(){
+                            callback();
+                        },1000);
+                    }
+                },int_speed);
+            }
+        })(jQuery);
+
+        $(".value").num({
+            speed:100,
+            count:100
+        },function(){
+            $(".value").hide();
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,254 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">		
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+<meta content="telephone=no" name="format-detection" />
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<link rel="stylesheet" href="css/hbindex.css"/>
+</head>
+
+<body class="hbbody" style="background: url('images/bg.png') no-repeat center" >
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var win = (parseInt($(".couten").css("width"))) - 60;
+		$(".mo").css("height", $(document).height());
+		$(".mos2").css("height", $(document).height());
+		$(".couten").css("height", $(document).height());
+		$(".backward").css("height", $(document).height());
+		$("li").css({});
+		// 点击确认的时候关闭模态层
+		$(".sen a").click(function(){
+			$(".mo").css("display", "none")
+		});
+		$(".sens2 a").click(function(){
+			$(".mos2").css("display", "none")
+		});
+
+		/*获取点击事件*/
+		var hbdj=0;
+		var restCount1=4;
+		var arr = [1,8,10,20,50]; //红包金额
+		var index = Math.floor((Math.random() * arr.length));
+
+		$(".couten").on("click","li",function(){
+			if(hbdj<4&&restCount1>0){
+				hbdj++;
+				restCount1--;
+				var arr = [1,8,10,20,50]; //红包金额
+				var index = Math.floor((Math.random() * arr.length));
+				$(".price").text(arr[index]);
+				$(".restCount").text(restCount1);
+				if(hbdj==2){
+					$(".mo").css("display", "block");
+				}else{
+					$(".mos2").css("display", "block");
+				}
+				/*alert("恭喜你抢到第"+hbdj+"个红包(每人只有4次抢红包机会哦)");*/
+			}
+			else{
+				$(".mos3").css("display", "block");
+				$(".couten").remove();
+
+				/*alert("恭喜您一共抢了4次红包，一共抢了"+$(".price").text()+"元，" +
+						"\n抢到的红包可三小时后在“我的账户”中查看,\n点击“确定”即可返回原网页")*/
+				/*window.location.href="http://www.qianshangqian.com/";*/
+
+				return false
+			}
+		});
+
+		/*抢了4次红包之后，红包雨停止*/
+
+		/*$(".sen a").click(function(){
+			if(hbdj>4){
+				$(".couten").css("display", "none")
+			}
+
+		});*/
+
+
+
+
+
+
+		var del = function(){
+			nums++;
+			$(".li" + nums).remove();
+			setTimeout(del,200)
+		}
+
+		/*钱包角度*/
+		var add = function() {
+			var hb = parseInt(Math.random() * (3 - 1) + 1);
+			var Wh = parseInt(Math.random() * (70 - 30) + 20);
+			var Left = parseInt(Math.random() * (win - 0) + 0);
+			var rot = (parseInt(Math.random() * (45 - (-45)) - 45)) + "deg";
+			//				console.log(rot)
+			num++;
+			$(".couten").append("<li class='li" + num + " ccc' ><img src='images/hb_" + hb + ".png'></a></li>");
+			$(".li" + num).css({
+				"left": Left,
+			});
+			$(".li" + num + " a img").css({
+				"width": Wh,
+				"transform": "rotate(" + rot + ")",
+				"-webkit-transform": "rotate(" + rot + ")",
+				"-ms-transform": "rotate(" + rot + ")", /* Internet Explorer */
+				"-moz-transform": "rotate(" + rot + ")", /* Firefox */
+				"-webkit-transform": "rotate(" + rot + ")",/* Safari 和 Chrome */
+				"-o-transform": "rotate(" + rot + ")" /* Opera */
+			});
+			$(".li" + num).animate({'top':$(window).height()+50},8000,function(){
+				//删掉已经显示的红包
+				this.remove()
+			});
+			//点击红包的时候弹出模态层
+		/*	$(".li" + num).click(function() {
+			var arr = [1,8,10,20,50]; //红包金额
+			var index = Math.floor((Math.random() * arr.length));
+			$(".price").text(arr[index])
+			$(".mo").css("display", "block")
+
+
+			});*/
+			/*//点击获取点击次数
+			 $(document).ready(function(){
+			 var x=0;
+			 $("couten").click(function(){
+			 x++;
+			 /!*$(this).html("我被点击了"+x+"次");*!/
+			 alert("我被点击了"+x+"次");
+			 });
+			 });*/
+			setTimeout(add,200)
+		}
+
+		//增加红包
+		var num = 0;
+		setTimeout(add,3000);
+
+		/*红包规定的时间倒计时*/
+		var over_time=$(".date_time").html();
+		var interval=setInterval(function(){
+			if(over_time==0){
+				clearInterval(interval);
+				$(".rain_hide").remove();
+			}
+			else{
+				over_time--;
+				$(".date_time").html(over_time);
+			}
+		},1000);
+
+		//倒数计时
+		var backward = function(){
+			numz--;
+			if(numz>0){
+				$(".backward span").html(numz);
+
+			}else{
+				$(".backward").remove();
+				/*倒计时结束时，出现抢红包倒计时20秒*/
+				$(".rain_hide").css('display','block');
+
+			}
+			setTimeout(backward,1000)
+
+		}
+
+		var numz = 4;
+		backward();
+
+
+	})
+	function getCashPrizePrice() {
+
+		$.ajax({
+			url : "/front/CashPrize/CashPrizeManage/getCashPrizePrice",
+			type : "POST",
+			data : {
+
+			},
+			success : function(data) {
+				if (data.status < 0) {
+					if(data.status==-3)
+					{
+						alert("本次活动已结束！");
+						window.location.href="/";
+					}
+					if(data.status==-2)
+					{
+
+						window.location.href="/";
+					}
+					return;
+				}
+				if(data.price==0)
+				{
+					$(".restCount2").text(data.restCount)
+					$(".mos2").css("display", "block")
+				}else{
+					$(".price").text(data.price)
+					$(".restCount").text(data.restCount)
+					$(".mo").css("display", "block")
+				}
+			},
+			error : function() {
+				alert("对不起，js出现错误!");
+			}
+		});
+	}
+
+</script>
+
+
+
+
+<!--红包雨-->
+<ul class="couten">
+	<li>
+		<a href="#"><img class="hb_img" src="images/hb_1.png"></a>
+	</li>
+</ul>
+
+<!--获得红包弹出对话框-->
+<div class="mo">
+	<div class="sen">
+		<img src="images/gx.png" style="width:387px;height: 398px">
+		<h2>获得<span class="price">5</span>元红包</h2>
+		<h3>您还有<span class="restCount">3</span>次抢红包机会</h3>
+		<a href="#">确定</a>
+	</div>
+</div>
+<!--未获得红包弹出对话框-->
+<div class="mos2">
+	<div class="sens2">
+		<img src="images/hyh.png" style="width:387px;height: 398px">
+		<h3>您还有<span class="restCount2">0</span>次抢红包机会</h3>
+		<a href="#">确定</a>
+	</div>
+</div>
+<!--总数-->
+<div class="mos3">
+	<div class="sens3">
+		<h1>一共抢了4次红包</h1>
+		<h2>一共中了1次红包</h2>
+		<h2>一共中了<span class="price">5</span>红包</h2>
+		<h5>抢到的红包可三小时后在“我的账户”中查看,<br/>点击“确定”即可返回原网页</h5>
+		<a href="#">确定</a>
+	</div>
+</div>
+<!--抢红包之前321倒计时-->
+<div class="backward">
+	<span></span>
+</div>
+
+</body>
+</html>

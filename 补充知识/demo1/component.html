@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!--组建三部曲： 创建 注册 引用
+            每个组建互相独立 不能跨组建
+            vm 
+        -->
+        <child :m="flad"><p @click="fn">2222222</p></child>   
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+    <script type="text/javascript">
+    // 槽口slot slot的内容属于父级的数据
+    // slot  name属性
+        var child = {
+            template: '<div><h3>{{m}}</h3><slot></slot></div>',
+            data() {
+                return {
+                    msg: '222222222'
+                }
+            },
+            props: {
+                // required 和 default不能混用  valdator
+                m: {
+                    type: String,
+                    default: 'aaa'
+                }
+            }
+        } 
+        // 父组件 $emit
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                flad:'red'
+            },
+            components: {
+                child
+            },
+            methods: {
+                fn() {
+                    alert(1);
+                }
+            }
+        })
+
+    </script>
+</body>
+
+</html>

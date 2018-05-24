@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link href="https://cdn.bootcss.com/animate.css/3.5.2/animate.css" rel="stylesheet">
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        
+    </div>
+    <script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                flad:'red'
+            },
+            beforeCreate(){},
+            // 获取ajax 初始化操作
+            created(){},
+            // 没有意义
+            beforeMount(){},
+            // dom渲染完毕 操作dom
+            mounted(){
+                // 箭头函数 解决this只想问题
+                // $nextTick 异步
+                this.$nextTick(() => {}) 
+            },
+            // 一般使用watch替换
+            beforeUpdate(){},
+            updated(){},
+            beforeDestroy(){},
+            // 清楚定时器 事件绑定
+            destroyed(){}
+        
+        })
+
+    </script>
+</body>
+
+</html>

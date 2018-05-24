@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+	<div id="app">
+        <ul v-cloak>
+            <li v-for="(item,index) in items" v-text="item.name" :key="index" @click="fn($event)"></li>
+            <!-- 点击事件修饰符 -->
+            <!-- 将后续的处理逻辑传入到当前要做的事，事情做好后调用次函数 -->
+            <!-- promise解决回调问题 ，三个状态：成功/失败/等待-->
+            <!-- 成功：resolve -->
+            <!-- 失败：reject -->
+            <!-- resolve，reject都是一个函数 -->
+        </ul>
+	</div>
+	<script src="https://cdn.bootcss.com/vue/2.5.17-beta.0/vue.js"></script>
+	<script type="text/javascript">
+		var vm = new Vue({
+			el:"#app",
+			data:{
+				items:[
+                    {name:'xiaoming'},
+                    {name:'xiaohong'}
+                ]
+			},
+            methods:{
+                fn:function(e){
+                    console.log(e);
+                }
+            }
+		})
+
+
+		
+	</script>
+</body>
+</html>
