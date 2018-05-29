@@ -114,7 +114,7 @@
                 str+='<button type="button" class="btn btn-primary">修改</button>'
                 str+='<button type="button" class="btn btn-danger">删除</button>'
                 str+='</td>'
-                str+='</th> '       
+                str+='</th>'       
 			}
 			oBox.innerHTML = str;
 		}
@@ -123,10 +123,11 @@
 		}
 		function init(){
 			$.ajax({
-				url:'/getList',
+				url:'localhost:6666/getList',
 				type:'get',
 				dataType:'json',
 				success:function(res){
+                    console.log(res)
 					if(res && res.code === 0){
 						bindHTML(res.data);
 						bindEvent();

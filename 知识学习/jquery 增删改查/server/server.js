@@ -20,7 +20,7 @@ var server = Http.createServer((req,res)=>{
     //var list = fs.readFileSync("book.json")     同步读取到数据    操作数据
 
     function read(cb){
-        fs.readFile("book.json",function(err,data){
+        fs.readFile("list.json",function(err,data){
             if(err){
                 console.log(err)
             }else{
@@ -28,10 +28,11 @@ var server = Http.createServer((req,res)=>{
             }
         })
     }
-    
+    console.log(pathname)
     switch(pathname){
         case "/getlist":
             //查找用户信息
+            console.log(1)
             if(req.method==="GET"){
                 read(function(list){
                     res.end(JSON.stringify({
@@ -106,39 +107,5 @@ var server = Http.createServer((req,res)=>{
         break;
         
     }
-
-    // if(req.url === "/list"){
-    //     switch(req.method)
-    //     {
-    //         case "PUT":
-    //             console.log("put")
-    //             //read(function(list){
-
-    //                 // res.end(JSON.stringify({
-    //                 //     "status": "success",
-    //                 //     "result": {
-    //                 //         "code": 200,
-    //                 //         "msg": '返回成功',
-    //                 //         "data": arr,
-    //                 //     }    
-    //                 // }))
-    //             //})
-    //             break;
-    //         case "DELETE":
-    //             //执行代码块 2
-    //             console.log("DELETE")
-    //             break;
-    //         case "POST":
-    //             console.log("POST")
-    //         break;
-    //         case "GET":
-    //             //执行代码块 2
-    //             console.log("GET")
-    //         break;
-    //         default:
-                
-    //     }
-        
-    // }
 })
-server.listen(6666)
+server.listen(8000);
