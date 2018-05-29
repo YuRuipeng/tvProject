@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="public.css">
+    <link rel="stylesheet" href="bootstrap.css">
+    <style>
+    #app{
+        padding: 20px;
+    }
+    .header{
+        margin-bottom: 10px;
+    }
+    .nav{
+        margin-bottom: 12px;
+    }
+    .nav li{
+        float: left;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        padding: 2px 4px;
+        margin-right: 5px;
+    }
+    .tiajia li{
+        border: 1px solid #ccc;
+        padding: 5px;
+        
+    }
+    .tiajia li p{
+        display: inline-block;
+        width:300px;
+        
+    }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="header">还有{{header}}件事情未完成</div>
+        <input type="text" class="form-control" :value="msg" v-model="msg" v-on:keydown.13="add($event)">
+        <div class="tiajia">
+            <ul>
+                <li v-for = "(item,index) in list1">
+                    <input type="checkbox" v-model="item.isSelect" @change="change()">
+                    <p v-if="item.flag" @dblclick="edit(index)">{{item.id}}</p>
+                    <input v-else type="text" @blur="input(index)" v-model="item.id">
+                    <button @click="del(item)">删除</button>
+                </li>
+            </ul>
+        </div>
+        
+        <ul class="nav">
+            <li v-for="item in list" @click="clicknav(item)">{{item}}</li>
+        </ul>
+        <div class="xianshi">
+            <li v-for="item in list2">{{item.id}}</li>
+        </div>
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        const STORAGE_KEY = 'todos-vuejs'
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                header:0,
+                msg:"",
+                list1:window.JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '[]'),
+                nav:"全部",
+                list2:window.JSON.parse(window.localStorage.getItem(STORAGE_KEY) || '[]'),
+                list:["全部","完成","未完成"],
+            },
+            methods:{
+                add:function(ev){  
+                    if(ev.keyCode == 13){  
+                        var txt = {"id":this.msg,"isSelect":false,"flag":true}
+                        this.list1.push(txt)
+                        this.change();
+                        this.msg=""
+                    }  
+                },
+                edit(i){
+                    this.list1.map(function(item,index){
+                        if(i==index){
+                            item.flag=false
+                        }
+                    })
+                },
+                input(i){
+                    this.list1.map(function(item,index){
+                        if(i==index){
+                            item.flag=true
+                        }
+                    })
+                },
+                del:function(i){
+                    this.list1 = this.list1.filter(item => item !== i)
+                    this.change();
+                },
+                change:function(){
+                    if(this.nav=="全部"){
+                        this.list2=this.list1;
+                        location.hash="#全部"
+                    }else if(this.nav=="完成"){
+                        this.list2 = this.list1.filter(item => item.isSelect !== false)
+                        location.hash="#完成"
+                    }else{
+                        this.list2 = this.list1.filter(item => item.isSelect !== true)
+                        location.hash="#未完成"
+                    }
+                    this.header = this.list1.filter(item => item.isSelect !== true).length
+                },
+                hash:function(){
+                    let hash = location.hash.slice(1);
+                    console.log(location.hash)
+                    console.log(hash)    
+                },
+                clicknav:function(e){
+                    this.nav=e
+                    this.change();
+                }
+            },
+            created:function(){
+                this.hash();
+            },
+            watch: {
+                '$route': 'hash',
+                list1: {
+                    handler: function(val, oldVal) {
+                        window.localStorage.setItem(STORAGE_KEY, window.JSON.stringify(val))
+                        
+                    },
+                    deep: true
+                },
+                list2: {
+                    handler: function(val, oldVal) {
+                        window.localStorage.setItem(STORAGE_KEY, window.JSON.stringify(val))
+                    },
+                    deep: true
+                }
+            },
+        })
+    </script>
+</body>
+</html>

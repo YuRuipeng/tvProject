@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/public.css">
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <style>
+        p{
+            margin-top:10px; 
+        }
+        .top{
+            padding: 10px;
+        }
+    </style>
+    <title>增删改查</title>
+</head>
+<body>
+    <div>
+        <div class="top" style="text-align: center"><button  type="button" data-toggle="modal" data-target="#myModal" class="btn btn-info">添加</button></div>
+        <div class="container">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>姓名</th>
+                        <th>年龄</th>
+                        <th>电话</th>
+                        <th>地址</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>于瑞鹏</td>
+                        <td>11</td>
+                        <td>12312312312312</td>
+                        <td>烟台</td>
+                        <td>
+                            <button type="button" class="btn btn-primary">修改</button>
+                            <button type="button" class="btn btn-danger">删除</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                    <p>姓名</p>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="姓名">
+                    <p>年龄</p>
+                    <input type="number" class="form-control" id="exampleInputEmail1" placeholder="年龄">
+                    <p>电话</p>
+                    <input type="tel" class="form-control" id="exampleInputEmail1" placeholder="电话">
+                    <p>地址</p>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="地址">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Modal -->
+      <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+            </div>
+            <div class="modal-body">
+                    <p>姓名</p>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="姓名">
+                    <p>年龄</p>
+                    <input type="number" class="form-control" id="exampleInputEmail1" placeholder="年龄">
+                    <p>电话</p>
+                    <input type="tel" class="form-control" id="exampleInputEmail1" placeholder="电话">
+                    <p>地址</p>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="地址">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="">
+        var IndexModule = (function(){
+        var oBox = document.getElementsByTagName("tbody")[0];
+		function bindHTML(data){
+			var str = '';
+			for(var i = 0;i < data.length;i++){
+                str+='<th scope="row">1</th>'
+                str+='<td>于瑞鹏</td>'
+                str+='<td>11</td>'
+                str+='<td>12312312312312</td>'
+                str+='<td>烟台</td>'
+                str+='<td>'
+                str+='<button type="button" class="btn btn-primary">修改</button>'
+                str+='<button type="button" class="btn btn-danger">删除</button>'
+                str+='</td>'
+                str+='</th> '       
+			}
+			oBox.innerHTML = str;
+		}
+		function bindEvent(){
+			
+		}
+		function init(){
+			$.ajax({
+				url:'/getList',
+				type:'get',
+				dataType:'json',
+				success:function(res){
+					if(res && res.code === 0){
+						bindHTML(res.data);
+						bindEvent();
+					}
+				}
+			});
+		}
+		return {
+			init:init
+		}
+	})();
+	IndexModule.init();
+    </script>
+</body>
+</html>
