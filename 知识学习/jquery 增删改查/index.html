@@ -25,9 +25,8 @@
                     <tr>
                         <th>编号</th>
                         <th>姓名</th>
-                        <th>年龄</th>
-                        <th>电话</th>
-                        <th>地址</th>
+                        <th>性别</th>
+                        <th>得分</th>
                         <th>操作</th>
                     </tr>
                 </thead>
@@ -58,12 +57,10 @@
             <div class="modal-body">
                     <p>姓名</p>
                     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="姓名">
-                    <p>年龄</p>
-                    <input type="number" class="form-control" id="exampleInputEmail1" placeholder="年龄">
-                    <p>电话</p>
-                    <input type="tel" class="form-control" id="exampleInputEmail1" placeholder="电话">
-                    <p>地址</p>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="地址">
+                    <p>性别</p>
+                    <input type="tel" class="form-control" id="exampleInputEmail1" placeholder="性别">
+                    <p>得分</p>
+                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="得分">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -80,66 +77,157 @@
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 class="modal-title" id="myModalLabel">Modal title</h4>
             </div>
-            <div class="modal-body">
+            <div class="modal-body modal2">
                     <p>姓名</p>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="姓名">
-                    <p>年龄</p>
-                    <input type="number" class="form-control" id="exampleInputEmail1" placeholder="年龄">
-                    <p>电话</p>
-                    <input type="tel" class="form-control" id="exampleInputEmail1" placeholder="电话">
-                    <p>地址</p>
-                    <input type="text" class="form-control" id="exampleInputEmail1" placeholder="地址">
+                    <input type="text" class="form-control name2" id="exampleInputEmail1" placeholder="姓名">
+                    <p>性别</p>
+                    <input type="tel" class="form-control sex2" id="exampleInputEmail1" placeholder="电话">
+                    <p>得分</p>
+                    <input type="text" class="form-control score2" id="exampleInputEmail1" placeholder="地址">
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <button type="button" class="btn changeBtn btn-primary btn">Save changes</button>
             </div>
           </div>
         </div>
       </div>
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="">
+    <script >
         var IndexModule = (function(){
         var oBox = document.getElementsByTagName("tbody")[0];
 		function bindHTML(data){
 			var str = '';
 			for(var i = 0;i < data.length;i++){
-                str+='<th scope="row">1</th>'
-                str+='<td>于瑞鹏</td>'
-                str+='<td>11</td>'
-                str+='<td>12312312312312</td>'
-                str+='<td>烟台</td>'
+                str+='<tr>'
+                str+='<th scope="row">'+data[i].id+'</th>'
+                str+='<td>'+data[i].name+'</td>'
+                if(data[i].sex){
+                    str+='<td>男</td>'
+                }else{
+                    str+='<td>女</td>'
+                }
+                str+='<td>'+data[i].score+'</td>'
                 str+='<td>'
-                str+='<button type="button" class="btn btn-primary">修改</button>'
-                str+='<button type="button" class="btn btn-danger">删除</button>'
+                str+='<button type="button" class="btn btn-primary btn2" data-toggle="modal" data-target="#myModal1" data-id = "'+data[i].id+'">修改</button> &nbsp;'
+                str+='<button type="button" class="btn btnDel btn-danger" data-id = "'+data[i].id+'">删除</button>'
                 str+='</td>'
-                str+='</th>'       
+                str+='</th>' 
+                str+='</tr>'   
 			}
 			oBox.innerHTML = str;
 		}
 		function bindEvent(){
-			
+			$.ajax({
+                url:'http://localhost:8000/getlist',
+                type:'get',
+                dataType:'json',
+                success:function(res){
+                    if(res.result.code === 10002){
+                        bindHTML(res.result.data);
+                    }
+                }
+            });
 		}
 		function init(){
-			$.ajax({
-				url:'localhost:6666/getList',
-				type:'get',
-				dataType:'json',
-				success:function(res){
-                    console.log(res)
-					if(res && res.code === 0){
-						bindHTML(res.data);
-						bindEvent();
-					}
-				}
-			});
+			bindEvent();
+            $("body").on("click",".btn2",function(){
+                var id = $(this).attr("data-id")
+                $(".modal2").attr("data-id",id)
+                getonelist(id);
+            })
+            $("body").on("click",".btnDel",function(){
+                var id = $(this).attr("data-id")
+                Deletelist(id);
+            })
+            $("body").on("click",".changeBtn",function(){
+                
+                changelist($(".modal2").attr("data-id"),$(".name2").val(),$(".sex2").val(),$(".score2").val())
+            })
 		}
+        function addlist(){
+            $.ajax({
+                url:'http://localhost:8000/getlist',
+                type:'post',
+                data:{
+                    name:name,
+                    sex:sex,
+                    score:score
+                },
+                dataType:'json',
+                success:function(res){
+                    console.log(res)
+                    if(res.result.code === 10002){
+                        bindHTML(res.result.data);
+                    }
+                }
+            });
+        }
+        function changelist(id,name,sex,score){
+            $.ajax({
+                url:'http://localhost:8000/changeInfo',
+                type:'post',
+                dataType:'json',
+                data:{
+                    id:id,
+                    name:name,
+                    sex:sex,
+                    score:score
+                },
+                success:function(res){
+                    console.log(res)
+                    if(res.result.code === 10002){
+                        bindHTML(res.result.data);
+                        $('#myModal1').modal('hide')
+                    }
+                }
+            });
+        }
+        function Deletelist(id){
+            $.ajax({
+                url:'http://localhost:8000/removeInfo',
+                type:'get',
+                dataType:'json',
+                data:{
+                    id:id
+                },
+                success:function(res){
+                    console.log(res)
+                    if(res.result.code === 10002){
+                        bindHTML(res.result.data);
+                    }
+                }
+            });
+        }
+        function getonelist(id){
+            $.ajax({
+                url:'http://localhost:8000/getInfo',
+                type:'get',
+                data:{
+                    id:id
+                },
+                dataType:'json',
+                success:function(res){
+                    $(".name2").val(res.result.data[0].name)
+                    if(res.result.data[0].sex){
+                        $(".sex2").val("男") 
+                    }else{
+                        $(".sex2").val("女")    
+                    }
+                    
+                    $(".score2").val(res.result.data[0].score)
+                }
+            });
+        }
 		return {
 			init:init
 		}
 	})();
 	IndexModule.init();
+
+
+    // $('#myModal').modal('hide')
     </script>
 </body>
 </html>

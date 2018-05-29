@@ -28,11 +28,10 @@ var server = Http.createServer((req,res)=>{
             }
         })
     }
-    console.log(pathname)
+    //console.log(pathname)
     switch(pathname){
         case "/getlist":
             //查找用户信息
-            console.log(1)
             if(req.method==="GET"){
                 read(function(list){
                     res.end(JSON.stringify({
@@ -58,8 +57,11 @@ var server = Http.createServer((req,res)=>{
         case "/getInfo":
             //查找单个用户信息
             if(req.method==="GET"){
-
+                //console.log(query)
                 read(function(list){
+                    var arr = list.filter((item,index)=>{
+                        return item.id == query.id
+                    })
                     res.end(JSON.stringify({
                         "status": "success",
                         "result": {
@@ -80,7 +82,7 @@ var server = Http.createServer((req,res)=>{
                 }))
             }
         break;
-        case "addInfo":
+        case "/addInfo":
             //增加用户信息
             if(req.method==="POST"){
 
@@ -88,21 +90,84 @@ var server = Http.createServer((req,res)=>{
                 
             }
         break;
-        case "changeInfo":
+        case "/changeInfo":
             //修改某个用户信息
             //增加用户信息
             if(req.method==="POST"){
+               
+                var data = '';
+                req.on('data', function (chunk) {
+                    data += chunk;
+                });
+                req.on('end', function () {
+                    data = decodeURI(data);
+                    var list = JSON.parse(data)
+                    console.log(data)
+                })
+                // read(function(list){
+                //     var arr = list.filter((item,index)=>{
+                //         return item.id != query.id
+                //     })
+                //     arr.map((item,index)=>{
+                        
+                //         item.id=index+1
+                //     })
+                //     fs.writeFile("list.json",JSON.stringify(arr),function(err){
 
+                //     })
+                //     res.end(JSON.stringify({
+                //         "status": "success",
+                //         "result": {
+                //             "code": 10002,
+                //             "msg": '返回成功',
+                //             "data": arr,
+                //         }    
+                //     }))
+                // })
             }else{
-                
+                res.end(JSON.stringify({
+                    "status": "fail",
+                    "result": {
+                        "code": 10001,
+                        "msg": '返回失败',
+                        "data": [],
+                    }    
+                }))
             }
         break;
-        case "removeInfo":
+        case "/removeInfo":
             //删除某个用户信息 
             if(req.method==="GET"){
+                //console.log(query)
+                read(function(list){
+                    var arr = list.filter((item,index)=>{
+                        return item.id != query.id
+                    })
+                    arr.map((item,index)=>{
 
+                        item.id=index+1
+                    })
+                    fs.writeFile("list.json",JSON.stringify(arr),function(err){
+
+                    })
+                    res.end(JSON.stringify({
+                        "status": "success",
+                        "result": {
+                            "code": 10002,
+                            "msg": '返回成功',
+                            "data": arr,
+                        }    
+                    }))
+                })
             }else{
-                
+                res.end(JSON.stringify({
+                    "status": "fail",
+                    "result": {
+                        "code": 10001,
+                        "msg": '返回失败',
+                        "data": [],
+                    }    
+                }))
             }
         break;
         
